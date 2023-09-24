@@ -24,8 +24,7 @@ body {
 .container {
     position: relative;
     height: 100vh;
-    display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
 }
 
@@ -97,5 +96,51 @@ p {
 }
 
 
+.results {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 50px 65px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: blueviolet;
+}
 
+.prof {
+    font-size: 25px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    position: relative;
+    padding-left: 30px; /* Расстояние между радиокнопкой и текстом */
+    cursor: pointer;
+}
+
+
+input[type="radio"] + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; 
+    height: 20px; 
+    border: 2px solid #007BFF; 
+    border-radius: 50%;
+    background-color: transparent;
+    transition: border-color 0.3s ease; 
+}
+
+
+input[type="radio"]:checked + label:before {
+    background-color: #007BFF;
+    border-color: #007BFF; 
+}
 
