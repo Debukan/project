@@ -42,12 +42,25 @@ const question = document.getElementById('changetext');
 const questionnum = document.getElementById('changequest')
 
 let currentQuestionIndex = 0;
+
+let score = 0;
  
 changeBtn.addEventListener('click', () => {
     currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
     question.textContent = questions[currentQuestionIndex];
     questionnum.textContent = questionsnum[currentQuestionIndex];
+
+    const selectedAnswer = document.querySelector('input[type="radio"]:checked')
+
+    if (selectedAnswer === 'yes') {
+        score++;
+    }
+
+    $("input[type='radio']").prop('checked', false);
+
+    
 });
+
 
 $("input[type=\"radio\"]").click(function(){
     var value = $(this).val();
