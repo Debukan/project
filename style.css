@@ -239,5 +239,66 @@ footer {
 }
 
 #question2 {
+    display: block;
+}
+
+#answerButton {
+    background-color: #ff5733;
+    width: 150px;
+    height: 75px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+  
+#answerButton:hover {
+    background-color: #ff4500;
+    color: #fff;
+}
+
+#result1 {
     display: none;
+}
+
+#nextbutton {
+    display: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #ff5733;
+    border-radius: 20px;
+    border: none;
+    height: 75px;
+    line-height: 75px;
+}
+
+#nextbutton:hover {
+    background-color: #ff4500;
+    color: #fff;
+}
+
+
+#result2 {
+    display: none;
+}
+
+#answerButton2 {
+    background-color: #ff5733;
+    width: 150px;
+    height: 75px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#answerButton2:hover {
+    background-color: #ff4500;
+    color: #fff;
 }
