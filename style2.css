@@ -300,6 +300,10 @@ footer {
 }
 
 #result1text2 {
+    font-size: 26px;
+}
+
+#result1text2prof {
     font-size: 24px;
 }
 
@@ -327,4 +331,8 @@ footer {
 
 .proftext1 {
     font-size: 18px;
+}
+
+.profnametext {
+    font-weight: bolder;
 }
