@@ -142,38 +142,41 @@ let score = 0;
 
 if (changeBtn) {
     changeBtn.addEventListener('click', () => {
-        currentQuestionIndex = currentQuestionIndex + 1;
-        if (currentQuestionIndex >= questions.length) {
-            document.getElementById('question1').style.display = 'none';
-            document.getElementById('result1').style.display = 'block';
-            changeBtn.style.display = 'none';
-            let elements = document.getElementsByClassName("radio_answers");
-            for(let i = 0; i < elements.length; i++) {
-                elements[i].style.display = 'none';
-            }
-            if (score >= 7) {
-                document.getElementById("result1text").textContent = 'Вам подходит IT сфера.';
-                document.getElementById("nextbutton").style.display = 'inline-block';
-            }
-            else if (score >= 4){
-                document.getElementById("result1text").textContent = 'Вам скорее всего подходит IT сфера.';
-                document.getElementById("nextbutton").style.display = 'inline-block';
+        const selectedAnswer = document.querySelector('input[type="radio"]:checked')
+        if (selectedAnswer) {
+            currentQuestionIndex = currentQuestionIndex + 1;
+            if (currentQuestionIndex >= questions.length) {
+                document.getElementById('question1').style.display = 'none';
+                document.getElementById('result1').style.display = 'block';
+                changeBtn.style.display = 'none';
+                let elements = document.getElementsByClassName("radio_answers");
+                for(let i = 0; i < elements.length; i++) {
+                    elements[i].style.display = 'none';
+                }
+                if (score >= 7) {
+                    document.getElementById("result1text").textContent = 'Вам подходит IT сфера.';
+                    document.getElementById("nextbutton").style.display = 'inline-block';
+                }
+                else if (score >= 4){
+                    document.getElementById("result1text").textContent = 'Вам скорее всего подходит IT сфера.';
+                    document.getElementById("nextbutton").style.display = 'inline-block';
+                }
+                else {
+                    document.getElementById("result1text").textContent = 'Скорее всего вам не подходит IT сфера.';
+                }
             }
             else {
-                document.getElementById("result1text").textContent = 'Скорее всего вам не подходит IT сфера.';
+                question.textContent = questions[currentQuestionIndex];
+                questionnum.textContent = questionsnum[currentQuestionIndex];
+
+                const selectedAnswer = document.querySelector('input[type="radio"]:checked')
+
+                if (selectedAnswer && selectedAnswer.value == 'yes') {
+                    score++;
+                }
+
+                $("input[type='radio']").prop('checked', false);
             }
-        }
-        else {
-            question.textContent = questions[currentQuestionIndex];
-            questionnum.textContent = questionsnum[currentQuestionIndex];
-
-            const selectedAnswer = document.querySelector('input[type="radio"]:checked')
-
-            if (selectedAnswer && selectedAnswer.value == 'yes') {
-                score++;
-            }
-
-            $("input[type='radio']").prop('checked', false);
         }
     });
 }
@@ -188,53 +191,40 @@ let score2 = 0;
 
 if (changeBtn2) {
     changeBtn2.addEventListener('click', () => {
-        currentQuestionIndex2 = currentQuestionIndex2 + 1;
-        if (currentQuestionIndex2 >= questions2.length) {
-            document.getElementById('question2').style.display = 'none';
-            document.getElementById('result2').style.display = 'block';
-            changeBtn2.style.display = 'none';
-            let elements = document.getElementsByClassName("radio_answers");
-            for(let i = 0; i < elements.length; i++) {
-                elements[i].style.display = 'none';
-            }
-            let maxnum = -1, maxim = -1;
-            for (let i = 0; i < user_results.length; i++) {
-                if (user_results[i] > maxim) {
-                    maxim = user_results[i];
-                    maxnum = i;
+        const selectedAnswer = document.querySelector('input[type="radio"]:checked')
+        if (selectedAnswer) {
+            currentQuestionIndex2 = currentQuestionIndex2 + 1;
+            if (currentQuestionIndex2 >= questions2.length) {
+                document.getElementById('question2').style.display = 'none';
+                document.getElementById('result2').style.display = 'block';
+                changeBtn2.style.display = 'none';
+                let elements = document.getElementsByClassName("radio_answers");
+                for(let i = 0; i < elements.length; i++) {
+                    elements[i].style.display = 'none';
                 }
-            }
-            document.getElementById("result1text2").textContent = professions[maxnum];
-        }
-        else {
-            question2.textContent = questions2[currentQuestionIndex2];
-            questionnum2.textContent = questionsnum2[currentQuestionIndex2];
-
-            const selectedAnswer = document.querySelector('input[type="radio"]:checked')
-
-            if (selectedAnswer && selectedAnswer.value == 'yes') {
-                $("input[type='radio']").prop('checked', false);
-                for (let i = 0; i < scores.length(); i++) {
-                    if (scores[currentQuestionIndex2][i] == 1) {
-                        user_results[currentQuestionIndex2]++;
+                let maxnum = -1, maxim = -1;
+                for (let i = 0; i < user_results.length; i++) {
+                    if (user_results[i] > maxim) {
+                        maxim = user_results[i];
+                        maxnum = i;
                     }
                 }
+                document.getElementById("result1text2").textContent = professions[maxnum];
             }
-            $("input[type='radio']").prop('checked', false);
+            else {
+                question2.textContent = questions2[currentQuestionIndex2];
+                questionnum2.textContent = questionsnum2[currentQuestionIndex2];
+
+                if (selectedAnswer && selectedAnswer.value == 'yes') {
+                    $("input[type='radio']").prop('checked', false);
+                    for (let i = 0; i < scores.length(); i++) {
+                        if (scores[currentQuestionIndex2][i] == 1) {
+                            user_results[currentQuestionIndex2]++;
+                        }
+                    }
+                }
+                $("input[type='radio']").prop('checked', false);
+            }
         }
     });
-}
-
-$("input[type=\"radio\"]").click(function(){
-    var value = $(this).val();
-
-    // Сохранение в localStorage:
-    localStorage.setItem("option", value);
-});
-
-
-// Для localStorage:
-var itemValue = localStorage.getItem("option");
-if (itemValue !== null) {
-    $("input[value=\""+itemValue+"\"]").click();
 }
