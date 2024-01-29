@@ -237,9 +237,6 @@ if (changeBtn2) {
                             user_results[i]++;
                         }
                     }
-                    for (let i = 0; i < user_results.length; i++) {
-                        console.log(user_results[i]);
-                    }
                 }
                 $("input[type='radio']").prop('checked', false);
             }
