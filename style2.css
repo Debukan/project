@@ -316,10 +316,6 @@ footer {
     font-weight: bolder;
 }
 
-@media (max-width: 770px) {
-    
-}
-
 @media (max-width: 800px) {
     .container2 {
         max-width: 600px;
@@ -335,5 +331,21 @@ footer {
 @media (max-width: 600px) {
     .container2 {
         max-width: 400px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container2 {
+        margin-top: auto;
+        max-width: 380px;
+        width: 350px;
+        padding: 10px;
+        max-height: 450px;
+    }
+    #answerButton2 {
+        margin-top: 30px;
+    }
+    .radio_answers {
+        margin-top: 40px;
     }
 }
