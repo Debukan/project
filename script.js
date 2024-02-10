@@ -5,11 +5,6 @@ menuTrigger.addEventListener('mouseenter', () => {
     menu.style.left = '0';
 });
 
-// menu.addEventListener('mouseleave', () => {
-//     menu.style.left = '-200px';
-// });
-
-
 const questionsnum = [
     "Вопрос 1",
     "Вопрос 2",
